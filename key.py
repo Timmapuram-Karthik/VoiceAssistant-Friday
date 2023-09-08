@@ -5,4 +5,4 @@ newsapi = 'YOUR_API_KEY'
 #login to https://api-ninjas.com/api/jokes for api key
 jokesapi = 'YOUR_API_KEY'
 #login to https://platform.openai.com/ for api key
-openaikey='YOUR_KEY_KEY'
+openaikey = 'YOUR_KEY_KEY'
