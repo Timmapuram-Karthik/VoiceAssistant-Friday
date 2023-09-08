@@ -1,0 +1,5 @@
+pyttsx3 # For text-to-speech synthesis
+speechrecognition  # For speech recognition
+wikipedia-api # For interacting with Wikipedia
+requests  # For making HTTP requests
+openai # For using the OpenAI GPT-3 API
