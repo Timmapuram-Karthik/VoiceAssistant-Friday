@@ -45,8 +45,6 @@ Some features of Voice Assistant require API keys. You can obtain these keys fro
   
 - **Jokes API Key:** To fetch jokes, you'll need an API key from [JokesAPI](https://api-ninjas.com/api/jokes) Insert this key into the `key.py` file as well.
 
-- **OpenAI API Key:** To fecth chatgpt queries, you'll need an API key from [OpenAIAPI](https://platform.openai.com/) Insert this key into the `key.py` file as well.
-
 ### Usage
 
 #### Voice Commands
@@ -70,7 +68,6 @@ To use Voice Assistant - Friday, follow these steps:
 - Perform web searches.
 - Open websites and applications.
 - Engage in general chat with Friday.
-- Write documents using OpenAI's GPT-3.
 
 ```
 
