@@ -1,7 +1,6 @@
 import datetime
 import os
 import webbrowser
-import openai
 import pyttsx3
 import requests
 import speech_recognition as sr
@@ -193,51 +192,6 @@ def jokes():
         print("Error:", response.status_code, response.text)
 
 
-# Function to generate text using OpenAI's GPT-3
-def write(query):
-    openai.api_key = key.openaikey
-    text = f"OpenAI response for Prompt: {query} \n *************************\n\n"
-
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=query,
-        temperature=0.7,
-        max_tokens=256,
-        top_p=1,
-        frequency_penalty=0,
-        presence_penalty=0
-    )
-
-    text += response["choices"][0]["text"]
-    if not os.path.exists("Openai"):
-        os.mkdir("Openai")
-
-    with open(f"Openai/{''.join(query.split('write')[1:]).strip()}.txt", "w") as f:
-        f.write(text)
-
-
-# Function to perform a general chat or Wolfram Alpha query
-def chat(query):
-    try:
-        global chatStr
-        print(chatStr)
-        openai.api_key = key.openaikey
-        chatStr += f"User: {query}\n Friday: "
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt=chatStr,
-            temperature=0.7,
-            max_tokens=256,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0
-        )
-        speak(response["choices"][0]["text"])
-        chatStr += f"{response['choices'][0]['text']}\n"
-        return response["choices"][0]["text"]
-    except Exception as e:
-        speak("Sorry, I couldn't understand your query.")
-
 
 # Function to exit the program
 def exit_program():
@@ -303,7 +257,5 @@ if __name__ == '__main__':
                 handle_date_query(text)
             elif "goodbye" in text or "exit" in text:
                 exit_program()
-            elif "write" in text:
-                write(text)
             else:
-                chat(text)
+                search_on_web(text)
